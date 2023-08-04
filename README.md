@@ -1,10 +1,10 @@
 # Sports Test
 
-####In this project I have followed MVVM pattern for our flutter development. Flutter is providing different state management techniques but in this code we are using riverpod for managing the state.
+###### In this project I have followed MVVM pattern for our flutter development. Flutter is providing different state management techniques but in this code we are using riverpod for managing the state.
 
-####I have made speperate the business logic from UI. so I have put UI in widgets in the UI folder and Other services, providers and repositories etc in the infrastructure folder.
+###### I have made speperate the business logic from UI. so I have put UI in widgets in the UI folder and Other services, providers and repositories etc in the infrastructure folder.
 
-####Infrastructure folder contains models, services, repositories, theme_helper, navigation router etc.
+###### Infrastructure folder contains models, services, repositories, theme_helper, navigation router etc.
 
 ## 1) Commons :-
 In the commons we are declaring constants, enums, extensions, utils etc.

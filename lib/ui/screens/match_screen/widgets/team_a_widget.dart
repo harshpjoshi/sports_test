@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sports_test/infrastructure/commons/constants/app_constants.dart';
 import 'package:sports_test/infrastructure/commons/extensions/get_match_extension.dart';
+import 'package:sports_test/infrastructure/commons/utils/common_method.dart';
 import 'package:sports_test/infrastructure/models/response/get_match_response_modal.dart';
 
 class TeamAWidget extends StatelessWidget {
@@ -62,48 +63,53 @@ class TeamAWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: response?.homeTeam?.players?.entries.map<Widget>(
                       (e) {
-                        return SizedBox(
-                          width: double.infinity,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                width: double.infinity,
-                                child: Padding(
-                                  padding: const EdgeInsets.all(8.0),
-                                  child: Row(
-                                    children: [
-                                      Container(
-                                        padding: const EdgeInsets.only(left: 20),
-                                        child: Text(
-                                          e.value.nameFull ?? '',
-                                          style: Theme.of(context)
-                                              .textTheme
-                                              .titleMedium
-                                              ?.copyWith(fontWeight: FontWeight.bold),
+                        return InkWell(
+                          onTap: () {
+                            CommonMethod.showPlayerDialog(context,e);
+                          },
+                          child: SizedBox(
+                            width: double.infinity,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(
+                                  width: double.infinity,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Row(
+                                      children: [
+                                        Container(
+                                          padding: const EdgeInsets.only(left: 20),
+                                          child: Text(
+                                            e.value.nameFull ?? '',
+                                            style: Theme.of(context)
+                                                .textTheme
+                                                .titleMedium
+                                                ?.copyWith(fontWeight: FontWeight.bold),
+                                          ),
                                         ),
-                                      ),
-                                      const SizedBox(
-                                        width: 4,
-                                      ),
-                                      if (e.value.iskeeper ?? false)
-                                        Text(
-                                          '(wk)',
-                                          style:
-                                              Theme.of(context).textTheme.titleMedium,
+                                        const SizedBox(
+                                          width: 4,
                                         ),
-                                      if (e.value.iscaptain ?? false)
-                                        Text(
-                                          '(C)',
-                                          style:
-                                              Theme.of(context).textTheme.titleMedium,
-                                        ),
-                                    ],
+                                        if (e.value.iskeeper ?? false)
+                                          Text(
+                                            '(wk)',
+                                            style:
+                                                Theme.of(context).textTheme.titleMedium,
+                                          ),
+                                        if (e.value.iscaptain ?? false)
+                                          Text(
+                                            '(C)',
+                                            style:
+                                                Theme.of(context).textTheme.titleMedium,
+                                          ),
+                                      ],
+                                    ),
                                   ),
                                 ),
-                              ),
-                              const Divider()
-                            ],
+                                const Divider()
+                              ],
+                            ),
                           ),
                         );
                       },

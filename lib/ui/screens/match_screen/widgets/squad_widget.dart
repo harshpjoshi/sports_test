@@ -27,43 +27,57 @@ class SquadWidget extends StatelessWidget {
                 children: [
                   Row(
                     children: [
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            fillColor: MaterialStateProperty.all(
-                                ColorConstants.primary),
-                            value: provider.isTeamA,
-                            onChanged: (bool? value) {
-                              ref
-                                  .read(squadProvider)
-                                  .setTeamA(!provider.isTeamA);
-                            },
-                          ),
-                          SizedBox(
-                            width: 4.w,
-                          ),
-                          const Text(AppConstants.teamA),
-                        ],
+                      InkWell(
+                        onTap: (){
+                          ref
+                              .read(squadProvider)
+                              .setTeamA(!provider.isTeamA);
+                        },
+                        child: Row(
+                          children: [
+                            Checkbox(
+                              checkColor: Colors.white,
+                              fillColor: MaterialStateProperty.all(
+                                  ColorConstants.primary),
+                              value: provider.isTeamA,
+                              onChanged: (bool? value) {
+                                ref
+                                    .read(squadProvider)
+                                    .setTeamA(!provider.isTeamA);
+                              },
+                            ),
+                            SizedBox(
+                              width: 4.w,
+                            ),
+                            const Text(AppConstants.teamA),
+                          ],
+                        ),
                       ),
-                      Row(
-                        children: [
-                          Checkbox(
-                            checkColor: Colors.white,
-                            fillColor: MaterialStateProperty.all(
-                                ColorConstants.primary),
-                            value: provider.isTeamB,
-                            onChanged: (bool? value) {
-                              ref
-                                  .read(squadProvider)
-                                  .setTeamB(!provider.isTeamB);
-                            },
-                          ),
-                          SizedBox(
-                            width: 4.w,
-                          ),
-                          const Text(AppConstants.teamB),
-                        ],
+                      InkWell(
+                        onTap: (){
+                          ref
+                              .read(squadProvider)
+                              .setTeamB(!provider.isTeamB);
+                        },
+                        child: Row(
+                          children: [
+                            Checkbox(
+                              checkColor: Colors.white,
+                              fillColor: MaterialStateProperty.all(
+                                  ColorConstants.primary),
+                              value: provider.isTeamB,
+                              onChanged: (bool? value) {
+                                ref
+                                    .read(squadProvider)
+                                    .setTeamB(!provider.isTeamB);
+                              },
+                            ),
+                            SizedBox(
+                              width: 4.w,
+                            ),
+                            const Text(AppConstants.teamB),
+                          ],
+                        ),
                       )
                     ],
                   ),

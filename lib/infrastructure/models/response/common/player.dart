@@ -6,12 +6,16 @@ class Player {
   String? nameFull;
   Batting? batting;
   Bowling? bowling;
+  bool? iskeeper;
+  bool? iscaptain;
 
-  Player({this.position, this.nameFull, this.batting, this.bowling});
+  Player({this.position, this.nameFull, this.batting, this.bowling,this.iskeeper,this.iscaptain});
 
   Player.fromJson(Map<String, dynamic> json) {
     position = json['Position'];
     nameFull = json['Name_Full'];
+    iskeeper = json['Iskeeper'];
+    iscaptain = json['Iscaptain'];
     batting =
     json['Batting'] != null ? Batting.fromJson(json['Batting']) : null;
     bowling =
@@ -22,6 +26,8 @@ class Player {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['Position'] = position;
     data['Name_Full'] = nameFull;
+    data['Iskeeper'] = iskeeper;
+    data['Iscaptain'] = iscaptain;
     if (batting != null) {
       data['Batting'] = batting!.toJson();
     }

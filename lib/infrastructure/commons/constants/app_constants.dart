@@ -28,4 +28,8 @@ class AppConstants{
     static const String matchDay = "Match days";
     static const String umpire = "Umpires";
     static const String referee = "Match Referee";
+    static const String squad = "Squad";
+    static const String summary = "Summary";
+    static const String teamA = "Team A";
+    static const String teamB = "Team B";
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:sports_test/infrastructure/commons/constants/app_constants.dart';
 import 'package:sports_test/infrastructure/commons/constants/color_constants.dart';
 import 'package:sports_test/infrastructure/commons/constants/route_constants.dart';
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
 
     WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
-      ref.read(homeScreenProvider).getMatch();
+      ref.read(homeScreenProvider).getAllMatches();
     });
   }
 
@@ -45,7 +46,8 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Consumer(builder: (context, ref, child) {
         this.ref = ref;
         HomeScreenProvider provider = ref.watch(homeScreenProvider);
-        GetMatchResponseModal? response = provider.getMatchResponseModal;
+        GetMatchResponseModal? response1 = provider.getMatch1ResponseModal;
+        GetMatchResponseModal? response2 = provider.getMatch2ResponseModal;
         if (provider.isLoading) {
           return const LoadingWidget();
         }
@@ -54,7 +56,7 @@ class _HomeScreenState extends State<HomeScreen> {
           return CustomErrorWidget(
             errorMessage: provider.errorMessage,
             onPressed: () {
-              ref.read(homeScreenProvider).getMatch();
+              ref.read(homeScreenProvider).getAllMatches();
             },
           );
         }
@@ -62,12 +64,20 @@ class _HomeScreenState extends State<HomeScreen> {
         return ListView(
           children: [
             MatchItemCard(
-              response: response,
+              response: response1,
               onTap: () {
-                ref.read(matchScreenProvider).setSelectedMatch(response);
+                ref.read(matchScreenProvider).setSelectedMatch(response1);
                 Navigator.pushNamed(context, RouteConstants.matchScreen);
               },
-            )
+            ),
+            SizedBox(height: 15.h,),
+            MatchItemCard(
+              response: response2,
+              onTap: () {
+                ref.read(matchScreenProvider).setSelectedMatch(response2);
+                Navigator.pushNamed(context, RouteConstants.matchScreen);
+              },
+            ),
           ],
         );
       }),

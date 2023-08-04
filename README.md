@@ -1,16 +1,26 @@
-# sports_test
+# Sports Test
 
-A new Flutter project.
+###### In this project I have followed MVVM pattern for our flutter development. Flutter is providing different state management techniques but in this code we are using riverpod for managing the state.
 
-## Getting Started
+###### I have made speperate the business logic from UI. so I have put UI in widgets in the UI folder and Other services, providers and repositories etc in the infrastructure folder.
 
-This project is a starting point for a Flutter application.
+###### Infrastructure folder contains models, services, repositories, theme_helper, navigation router etc.
 
-A few resources to get you started if this is your first Flutter project:
+## 1) Commons :-
+In the commons we are declaring constants, enums, extensions, utils etc.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 2) Data Access Layer:-
+In this layer we are doing network operation. For calling an API from provider (Viewmodels).
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 3) Models:-
+In this layer we are creatng data models.
+
+## 4) Providers:-
+In this layer we are creatng providers which is work as viewmodels and containing the business logic.
+
+## 5) Services:-
+In this layer we are creatng third party services like shared prefrences etc.
+
+## 6) UI Layer:-
+
+  Screens:-

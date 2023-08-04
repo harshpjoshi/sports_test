@@ -6,9 +6,26 @@ class AppConstants{
     static const String overs = "Overs";
     static const String playerOfTheMatch = "Player Of The Match";
     static const String batting = "Batting";
+    static const String bowling = "Bowling";
+    static const String o = "O";
+    static const String m = "M";
     static const String r = "R";
     static const String b = "B";
+    static const String w = "W";
     static const String four = "4s";
     static const String six = "6s";
     static const String sr = "SR";
+    static const String total = "total";
+    static const String extras = "Extras";
+    static const String econ = "Econ";
+    static const String wd = "WD";
+    static const String nb = "NB";
+    static const String fow = "Fall of wickets:";
+    static const String matchFlow = "Match Flow";
+    static const String matchDetails = "Match Details";
+    static const String toss = "Toss";
+    static const String series = "Series";
+    static const String matchDay = "Match days";
+    static const String umpire = "Umpires";
+    static const String referee = "Match Referee";
 }

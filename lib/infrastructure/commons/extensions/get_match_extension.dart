@@ -1,5 +1,7 @@
 import 'package:sports_test/infrastructure/commons/constants/image_constants.dart';
+import 'package:sports_test/infrastructure/models/response/common/batsmen.dart';
 import 'package:sports_test/infrastructure/models/response/common/inning.dart';
+import 'package:sports_test/infrastructure/models/response/common/player.dart';
 import 'package:sports_test/infrastructure/models/response/common/team.dart';
 import 'package:sports_test/infrastructure/models/response/get_match_response_modal.dart';
 
@@ -37,5 +39,13 @@ extension GetMatchExtension on GetMatchResponseModal {
         break;
     }
     return res;
+  }
+
+  Player? getBatsMenById({required String teamId,required String batsmenId}){
+    return teams?[teamId]?.players?[batsmenId];
+  }
+
+  Team? getTeamByID(String? id){
+    return teams?[id];
   }
 }

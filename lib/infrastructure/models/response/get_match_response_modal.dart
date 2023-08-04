@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:sports_test/infrastructure/models/response/common/inning.dart';
 import 'package:sports_test/infrastructure/models/response/common/match_details.dart';
+import 'package:sports_test/infrastructure/models/response/common/notes.dart';
 import 'package:sports_test/infrastructure/models/response/common/nuddgets.dart';
 import 'package:sports_test/infrastructure/models/response/common/team.dart';
 
@@ -10,6 +11,7 @@ class GetMatchResponseModal {
   List<String>? nuddgets;
   List<Inning>? inninges;
   Map<String,Team>? teams;
+  Map<String,List<String>>? notes;
 
   GetMatchResponseModal({
     this.matchDetails,
@@ -36,6 +38,14 @@ class GetMatchResponseModal {
         });
       }
     }
+    if(json['Notes'] != null){
+      notes = {};
+      if(json['Notes'] is Map<String,dynamic>){
+        json['Notes'].forEach((key,value){
+          notes?.putIfAbsent(key, () => value.cast<String>());
+        });
+      }
+    }
   }
 
   Map<String, dynamic> toJson() {
@@ -55,6 +65,13 @@ class GetMatchResponseModal {
         teamsData.putIfAbsent(key, () => value.toJson());
       });
       data['Teams'] = teamsData;
+    }
+    if (notes != null) {
+      Map<String, dynamic> notesData = {};
+      notes?.forEach((key,value){
+        notesData.putIfAbsent(key, () => value);
+      });
+      data['Notes'] = notesData;
     }
     return data;
   }

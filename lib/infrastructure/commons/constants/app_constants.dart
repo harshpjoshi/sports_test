@@ -32,4 +32,5 @@ class AppConstants{
     static const String summary = "Summary";
     static const String teamA = "Team A";
     static const String teamB = "Team B";
+    static const String noTeams = "No teams selected.";
 }

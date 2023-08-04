@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
 class SquadProvider with ChangeNotifier{
-  bool _isTeamA = false;
+  bool _isTeamA = true;
   bool get isTeamA => _isTeamA;
 
   bool _isTeamB = false;

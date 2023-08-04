@@ -78,8 +78,8 @@ class SquadWidget extends StatelessWidget {
                   if (!provider.isTeamB && !provider.isTeamA)
                     Center(
                       child: Text(
-                    "No teams selected.",
-                    style: Theme.of(context).textTheme.titleMedium,
+                        AppConstants.noTeams,
+                        style: Theme.of(context).textTheme.titleMedium,
                       ),
                     )
                 ],
